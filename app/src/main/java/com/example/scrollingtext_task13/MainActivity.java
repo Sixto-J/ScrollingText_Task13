@@ -1,5 +1,6 @@
 package com.example.scrollingtext_task13;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -28,11 +29,14 @@ public class MainActivity extends AppCompatActivity {
         });
 
         final Button rb1 = findViewById(R.id.comment);
+        final Button rb2 = findViewById(R.id.editar);
         final EditText edit = findViewById(R.id.editText01);
         final TextView article = findViewById(R.id.article);
 
         rb1.setOnClickListener(v -> comprobarVisibilidad(rb1, edit, article));
-
+        rb2.setOnClickListener(v -> {
+            EditarTexto(edit, article);
+        });
     }
 
     protected void comprobarVisibilidad(Button rb1, EditText edit, TextView article) {
@@ -46,9 +50,15 @@ public class MainActivity extends AppCompatActivity {
             edit.setVisibility(View.INVISIBLE);
             article.append(""+edit.getText());
             rb1.setText("Add a comment");
-
         }
     }
 
+
+    protected void EditarTexto(EditText edit, TextView article){
+        edit.setVisibility(View.INVISIBLE);
+        Intent intento = new Intent(MainActivity.this, EditarTexto.class);
+        startActivity(intento.putExtra("ARTICULO", article.getText().toString()));
+
+    }
 
 }

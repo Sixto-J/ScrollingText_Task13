@@ -38,7 +38,7 @@
             <TextView
                 android:id="@+id/article"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="1680dp"
                 android:autoLink="web"
                 android:lineSpacingExtra="@dimen/line_spacing"
                 android:text="@string/article_text" />
@@ -47,18 +47,30 @@
                 android:id="@+id/editText01"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
                 android:autofillHints="@string/comment"
                 android:inputType="textMultiLine"
-                android:maxLines="30"
                 android:labelFor="@string/comment"
-                />
+                android:maxLines="30"
+                android:visibility="gone" />
 
-            <Button
-                android:id="@+id/comment"
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/comment"/>
+                android:layout_gravity="end">
+
+                <Button
+                    android:id="@+id/comment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/comment" />
+
+                <Button
+                    android:id="@+id/editar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="@string/EditText" />
+            </RelativeLayout>
 
         </LinearLayout>
 
